@@ -1,0 +1,13 @@
+{
+    "name": "shared",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "peerDependencies": {
+        "react": "*",
+        "react-native": "*",
+        "react-native-gesture-handler": "*",
+        "styled-components": "*",
+        "@types/styled-components-react-native": "*"
+    }
+}
