@@ -3,11 +3,17 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "peerDependencies": {
+    "dependencies": {
         "react": "*",
         "react-native": "*",
-        "react-native-gesture-handler": "*",
-        "styled-components": "*",
-        "@types/styled-components-react-native": "*"
+        "styled-components": "*"
+    },
+    "devDependencies": {
+        "@types/react-native": "*",
+        "@types/styled-components-react-native": "*",
+        "typescript": "*"
+    },
+    "peerDependencies": {
+        "react-native-gesture-handler": "*"
     }
 }
