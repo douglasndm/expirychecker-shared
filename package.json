@@ -5,8 +5,7 @@
     "license": "MIT",
     "dependencies": {
         "react": "*",
-        "react-native": "*",
-        "styled-components": "*"
+        "react-native": "*"
     },
     "devDependencies": {
         "@types/react-native": "*",
@@ -14,6 +13,8 @@
         "typescript": "*"
     },
     "peerDependencies": {
-        "react-native-gesture-handler": "*"
+        "styled-components": "*",
+        "react-native-gesture-handler": "*",
+        "jest": "*"
     }
 }

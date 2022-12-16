@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { ViewStyle } from 'react-native';
 
 import { Button, ButtonText, Loading } from './styles';
@@ -18,17 +18,7 @@ const GenericButton: React.FC<Request> = ({
 	onPress,
 	contentStyle,
 }: Request) => {
-	const enabledButton = useMemo(() => {
-		if (isLoading) {
-			return false;
-		}
-
-		if (!enable) {
-			return false;
-		}
-
-		return true;
-	}, [enable, isLoading]);
+	const enabledButton = isLoading || !enable ? false : true;
 
 	return (
 		<Button onPress={onPress} enabled={enabledButton} style={contentStyle}>
