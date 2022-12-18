@@ -2,7 +2,10 @@ import styled, { css } from 'styled-components/native';
 import { Platform, Dimensions } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { RectButton } from 'react-native-gesture-handler';
-import { isIphoneX, getStatusBarHeight } from 'react-native-iphone-x-helper';
+
+export const Container = styled.SafeAreaView`
+    background-color: ${props => props.theme.colors.accent};
+`;
 
 export const HeaderContainerNoDrawner = styled.SafeAreaView`
     margin-top: 15px;
@@ -12,7 +15,7 @@ export const HeaderContainerNoDrawner = styled.SafeAreaView`
 
 export const HeaderContainer = styled(RectButton)`
     width: 100%;
-    padding: 30px 30px 15px 0px;
+    padding: 15px 30px 15px 0px;
 
     ${Dimensions.get('window').height <= 600 &&
     css`
@@ -31,15 +34,6 @@ export const HeaderContainer = styled(RectButton)`
     background-color: ${props => props.theme.colors.accent};
 
     flex-direction: row;
-
-    ${isIphoneX() &&
-    css`
-        padding-top: ${getStatusBarHeight() + 20}px;
-    `}
-    ${Platform.OS === 'android' &&
-    css`
-        padding-top: 10px;
-    `}
 `;
 
 interface TextLogoProps {

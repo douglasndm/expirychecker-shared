@@ -5,12 +5,11 @@ import { DrawerNavigationProp } from '@react-navigation/drawer';
 
 import strings from '~/Locales';
 
-import PreferencesContext from '~/Contexts/PreferencesContext';
-
 import StatusBar from '@components/StatusBar';
 import BackButton from '@components/BackButton';
 
 import {
+    Container,
     HeaderContainerNoDrawner,
     HeaderContainer,
     TextLogo,
@@ -18,7 +17,7 @@ import {
     MenuButton,
 } from './styles';
 
-interface RequestProps {
+export interface RequestProps {
     title?: string;
     noDrawer?: boolean;
     onBackPressed?: () => void;
@@ -33,7 +32,6 @@ const Header: React.FC<RequestProps> = ({
 }: RequestProps) => {
     const navigation = useNavigation<DrawerNavigationProp<RoutesParams>>();
 
-    const { userPreferences } = useContext(PreferencesContext);
 
     const titleFontSize = PixelRatio.get() < 1.5 ? 19 : 26;
 
@@ -76,11 +74,10 @@ const Header: React.FC<RequestProps> = ({
             <TextLogo noDrawer={noDrawer}>{title}</TextLogo>
         </HeaderContainerNoDrawner>
     ) : (
-        <>
+        <Container>
             <StatusBar forceWhiteTextIOS />
 
             <HeaderContainer onPress={onDoublePress}>
-                <>
                     <MenuButton onPress={handleOpenMenu}>
                         <MenuIcon />
                     </MenuButton>
@@ -91,14 +88,11 @@ const Header: React.FC<RequestProps> = ({
                         </TextLogo>
                     ) : (
                         <TextLogo style={{ fontSize: titleFontSize }}>
-                            {userPreferences.isPRO
-                                ? strings.AppName_ProVersion
-                                : strings.AppName}
+                                {strings.AppName}
                         </TextLogo>
                     )}
-                </>
             </HeaderContainer>
-        </>
+        </Container>
     );
 };
 
