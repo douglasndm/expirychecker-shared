@@ -1,9 +1,9 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback } from 'react';
 import { PixelRatio, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 
-import strings from '~/Locales';
+import strings from '@shared/Locales';
 
 import StatusBar from '@components/StatusBar';
 import BackButton from '@components/BackButton';

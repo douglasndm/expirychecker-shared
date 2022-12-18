@@ -1,6 +1,7 @@
 import { darken } from 'polished';
 import { DefaultTheme } from 'styled-components/native';
-import strings from '~/Locales';
+
+import strings from '@shared/Locales';
 
 const DarkGreen: DefaultTheme = {
     name: strings.View_Settings_Appearance_Theme_DarkGreen,

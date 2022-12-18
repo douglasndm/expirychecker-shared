@@ -1,5 +1,6 @@
 import { DefaultTheme } from 'styled-components';
-import strings from '~/Locales';
+
+import strings from '@shared/Locales';
 
 const Florest: DefaultTheme = {
     name: strings.View_Settings_Appearance_Theme_Florest,

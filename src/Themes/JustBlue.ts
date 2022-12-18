@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-import strings from '~/Locales';
+import strings from '@shared/Locales';
 
 const JustBlue: DefaultTheme = {
     name: strings.View_Settings_Appearance_Theme_JustBlue,
