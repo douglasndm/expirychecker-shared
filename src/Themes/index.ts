@@ -11,7 +11,7 @@ import Relax from './Relax';
 import Florest from './Florest';
 import JustBlue from './JustBlue';
 
-import { getAppTheme } from '../Utils/Themes';
+import { getAppTheme } from '@utils/Themes';
 
 export default {
     Light,

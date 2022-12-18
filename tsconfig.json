@@ -16,6 +16,7 @@
         "paths": {
             "@shared/*": ["./packages/shared/src/*"],
             "@components/*": ["./packages/shared/src/Components/*"],
+            "@utils/*": ["./packages/shared/src/Utils/*"],
         },
     },
     "include": ["src"],
