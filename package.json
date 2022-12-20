@@ -4,6 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
+        "react-native-qrcode-scanner": "^1.5.5",
         "@react-native-community/blur": "^4.2.0"
     },
     "devDependencies": {
@@ -18,8 +19,11 @@
         "@react-navigation/native": "*",
         "@react-navigation/stack": "*",
         "styled-components": "*",
+        "react-native-flash-message": "*",
         "react-native-gesture-handler": "*",
         "react-native-linear-gradient": "*",
+        "react-native-paper": "*",
+        "react-native-permissions": "*",
         "react-native-vector-icons": "*",
         "polished": "*",
         "jest": "*"
