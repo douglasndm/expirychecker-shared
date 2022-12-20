@@ -5,29 +5,30 @@ import strings from '@shared/Locales';
 
 const Light: DefaultTheme = {
 	name: strings.View_Settings_Appearance_Theme_Light,
-	key: 'light',
+	key: 'light_teams',
 	isPro: false,
 	isDark: false,
 
 	colors: {
-		primary: '#14d48f',
-		accent: '#14d48f',
+		primary: '#5856d6',
+		accent: '#5856d6',
 		background: '#f6f6f6',
 		text: '#000',
 		subText: '#999999',
-		textAccent: '#14d48f',
+		textAccent: '#5856d6',
 
 		inputText: '#050505',
-		placeholderColor: '#999999',
 		inputBackground: '#FFF',
 
 		productBackground: '#FFF',
-		productCardText: '#000000',
 
 		productExpiredBackground: '#CC4B4B',
 		productNextToExpBackground: '#DDE053',
 		productThreatedBackground: '#b0b0b0',
 		productNextOrExpiredText: '#FFF',
+
+		subscriptionBackground: darken(0.2, '#fff'),
+		subscriptionText: '#000',
 
 		TabBackground: 'rgba(255, 255, 255, 0.85)',
 		TabText: '#999999',
