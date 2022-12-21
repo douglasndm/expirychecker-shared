@@ -19,6 +19,7 @@
         "@react-navigation/native": "*",
         "@react-navigation/stack": "*",
         "styled-components": "*",
+        "react-native-fast-image": "*",
         "react-native-flash-message": "*",
         "react-native-gesture-handler": "*",
         "react-native-linear-gradient": "*",

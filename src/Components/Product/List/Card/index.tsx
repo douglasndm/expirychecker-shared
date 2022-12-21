@@ -10,6 +10,7 @@ import strings from '@shared/Locales';
 import Text from './Text';
 
 import {
+	Container,
 	Card,
 	Content,
 	ProductExpDate,
@@ -124,54 +125,56 @@ function Product({
 	}, [navigate, product.id]);
 
 	return (
-		<Card
-			expired={expired}
-			nextToExp={nextToExp}
-			threated={batch?.status === 'checked'}
-			onPress={handleNavigateToProduct}
-			onLongPress={onLongPress}
-		>
-			<Content>
-				{showImage && !!imagePath && !imgFailedToLoad && (
-    <>
-						{isImgLoading && <LoadingImage />}
+		<Container>
+			<Card
+				expired={expired}
+				nextToExp={nextToExp}
+				threated={batch?.status === 'checked'}
+				onPress={handleNavigateToProduct}
+				onLongPress={onLongPress}
+			>
+				<Content>
+					{showImage && !!imagePath && !imgFailedToLoad && (
+						<>
+							{isImgLoading && <LoadingImage />}
 
-						<ProductImage
-							source={{
-								uri: imagePath,
-								priority: FastImage.priority.low,
-							}}
-							onLoadStart={onLoadStart}
-							onLoadEnd={onLoadEnd}
-							onError={err => {
-								setImgFailedToLoad(true);
-							}}
-						/>
-					</>
+							<ProductImage
+								source={{
+									uri: imagePath,
+									priority: FastImage.priority.low,
+								}}
+								onLoadStart={onLoadStart}
+								onLoadEnd={onLoadEnd}
+								onError={err => {
+									setImgFailedToLoad(true);
+								}}
+							/>
+						</>
+					)}
+
+					<Text
+						product={product}
+						storeName={storeName}
+						expiredOrNext={expiredOrNext}
+					/>
+				</Content>
+
+				{!!exp_date && (
+					<ProductExpDate expiredOrNext={expiredOrNext}>
+						{expired
+							? strings.ProductCardComponent_ProductExpiredIn
+							: strings.ProductCardComponent_ProductExpireIn}
+						{` ${formatDistanceToNow(exp_date, {
+							addSuffix: true,
+							locale: languageCode,
+						})}`}
+						{format(exp_date, `, EEEE, ${dateFormat}`, {
+							locale: languageCode,
+						})}
+					</ProductExpDate>
 				)}
-
-				<Text
-					product={product}
-					storeName={storeName}
-					expiredOrNext={expiredOrNext}
-				/>
-    </Content>
-
-			{!!exp_date && (
-    <ProductExpDate expiredOrNext={expiredOrNext}>
-					{expired
-						? strings.ProductCardComponent_ProductExpiredIn
-						: strings.ProductCardComponent_ProductExpireIn}
-					{` ${formatDistanceToNow(exp_date, {
-						addSuffix: true,
-						locale: languageCode,
-					})}`}
-					{format(exp_date, `, EEEE, ${dateFormat}`, {
-						locale: languageCode,
-					})}
-				</ProductExpDate>
-			)}
-    </Card>
+			</Card>
+		</Container>
 	);
 }
 
