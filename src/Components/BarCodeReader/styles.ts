@@ -7,7 +7,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const HeaderContainer = styled.View`
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 `;
 

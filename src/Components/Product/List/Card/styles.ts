@@ -11,10 +11,6 @@ interface IProductInfo {
 	expiredOrNext?: boolean;
 }
 
-export const Container = styled.View`
-	flex: 1;
-`;
-
 export const Card = styled.Pressable<ICard>`
 	flex-direction: column;
 	margin: 3px 6px;

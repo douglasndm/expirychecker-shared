@@ -4,6 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
+        "react-native-check-version": "^1.0.16",
         "react-native-qrcode-scanner": "^1.5.5",
         "@react-native-community/blur": "^4.2.0"
     },
@@ -13,6 +14,7 @@
         "typescript": "*"
     },
     "peerDependencies": {
+        "@react-native-firebase/analytics": "*",
         "react": "*",
         "react-native": "*",
         "@react-native-firebase/remote-config": "*",
