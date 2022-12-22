@@ -15,6 +15,7 @@
     },
     "peerDependencies": {
         "@react-native-firebase/analytics": "*",
+        "date-fns": "*",
         "react": "*",
         "react-native": "*",
         "@react-native-firebase/remote-config": "*",

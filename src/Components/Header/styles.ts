@@ -19,7 +19,7 @@ export const HeaderContainer = styled(RectButton)`
 
 	${Dimensions.get('window').height <= 600 &&
 	css`
-		padding: 20px 20px 0px 0px;
+		padding: 10px 20px 10px 0px;
 	`}
 
 	${Dimensions.get('window').height > 920 &&
