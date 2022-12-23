@@ -17,6 +17,7 @@
             "@shared/*": ["./packages/shared/src/*"],
             "@components/*": ["./packages/shared/src/Components/*"],
             "@utils/*": ["./packages/shared/src/Utils/*"],
+            "@styles/*": ["./packages/shared/src/Styles/*"],
         },
     },
     "include": ["src"],
