@@ -10,10 +10,10 @@ import PaddingComponent from '@components/PaddingComponent';
 
 import {
 	Container,
+	Content,
 	InputContainer,
 	InputTextContainer,
 	InputText,
-	List,
 	ListTitle,
 	Icons,
 	LoadingIcon,
@@ -91,65 +91,59 @@ const ListView: React.FC<Props> = ({
 		[navigate]
 	);
 
-	const renderCategory = useCallback(
-		({ item }) => {
-			return (
-				<ListItemContainer
-					onPress={() => handleNavigateToCategory(item.id)}
-				>
-					<ListItemTitle>{item.name}</ListItemTitle>
-				</ListItemContainer>
-			);
-		},
-		[handleNavigateToCategory]
-	);
 	return isLoading ? (
 		<Loading />
 	) : (
 		<Container>
-			<Header title={strings.View_Category_List_PageTitle} />
+			<Content>
+				<Header title={strings.View_Category_List_PageTitle} />
 
-			{allowCreate && (
-				<AddNewItemContent>
-					<InputContainer>
-						<InputTextContainer hasError={inputHasError}>
-							<InputText
-								value={newCategoryName}
-								onChangeText={handleOnTextChange}
-								placeholder={
-									strings.View_Category_List_InputAdd_Placeholder
-								}
-							/>
-						</InputTextContainer>
+				{allowCreate && (
+					<AddNewItemContent>
+						<InputContainer>
+							<InputTextContainer hasError={inputHasError}>
+								<InputText
+									value={newCategoryName}
+									onChangeText={handleOnTextChange}
+									placeholder={
+										strings.View_Category_List_InputAdd_Placeholder
+									}
+								/>
+							</InputTextContainer>
 
-						<AddButtonContainer
-							onPress={handleSaveCategory}
-							enabled={!isAdding}
-						>
-							{isAdding ? (
-								<LoadingIcon />
-							) : (
-								<Icons name="add-circle-outline" />
-							)}
-						</AddButtonContainer>
-					</InputContainer>
+							<AddButtonContainer
+								onPress={handleSaveCategory}
+								enabled={!isAdding}
+							>
+								{isAdding ? (
+									<LoadingIcon />
+								) : (
+									<Icons name="add-circle-outline" />
+								)}
+							</AddButtonContainer>
+						</InputContainer>
 
-					{!!inputErrorMessage && (
-						<InputTextTip>{inputErrorMessage}</InputTextTip>
-					)}
-				</AddNewItemContent>
-			)}
+						{!!inputErrorMessage && (
+							<InputTextTip>{inputErrorMessage}</InputTextTip>
+						)}
+					</AddNewItemContent>
+				)}
 
-			<ListTitle>
-				{strings.View_Category_List_AllCategories_Label}
-			</ListTitle>
+				<ListTitle>
+					{strings.View_Category_List_AllCategories_Label}
+				</ListTitle>
 
-			<List
-				data={sortedCategories}
-				keyExtractor={(item, index) => String(index)}
-				renderItem={renderCategory}
-				ListFooterComponent={PaddingComponent}
-			/>
+				{sortedCategories.map(category => (
+					<ListItemContainer
+						key={category.id}
+						onPress={() => handleNavigateToCategory(category.id)}
+					>
+						<ListItemTitle>{category.name}</ListItemTitle>
+					</ListItemContainer>
+				))}
+
+				<PaddingComponent />
+			</Content>
 		</Container>
 	);
 };
