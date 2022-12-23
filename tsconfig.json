@@ -19,6 +19,9 @@
             "@utils/*": ["./packages/shared/src/Utils/*"],
             "@styles/*": ["./packages/shared/src/Styles/*"],
         },
+        "typeRoots": [
+            "./src/@types"
+        ]
     },
     "include": ["src"],
     "exclude": [

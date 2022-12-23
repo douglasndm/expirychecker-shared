@@ -10,10 +10,11 @@
     },
     "devDependencies": {
         "@types/react-native": "*",
-        "@types/styled-components-react-native": "*",
+        "@types/styled-components-react-native": "^5.1.3",
         "typescript": "*"
     },
     "peerDependencies": {
+        "@react-native-async-storage/async-storage": "*",
         "@react-native-firebase/analytics": "*",
         "date-fns": "*",
         "react": "*",
@@ -28,6 +29,7 @@
         "react-native-linear-gradient": "*",
         "react-native-paper": "*",
         "react-native-permissions": "*",
+        "react-native-picker-select": "^8.0.4",
         "react-native-vector-icons": "*",
         "polished": "*",
         "jest": "*"
