@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import RNPickerSelect from 'react-native-picker-select';
 
-export const Container = styled.View`
+export const Container = styled.SafeAreaView`
 	flex: 1;
 	background: ${props => props.theme.colors.background};
 `;
