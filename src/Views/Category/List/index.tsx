@@ -83,9 +83,10 @@ const ListView: React.FC<Props> = ({
 	}, [newCategoryName, createCategory]);
 
 	const handleNavigateToCategory = useCallback(
-		(categoryId: string) => {
+		(categoryId: string, categoryName?: string) => {
 			navigate('CategoryView', {
 				id: categoryId,
+				category_name: categoryName,
 			});
 		},
 		[navigate]
@@ -136,7 +137,9 @@ const ListView: React.FC<Props> = ({
 				{sortedCategories.map(category => (
 					<ListItemContainer
 						key={category.id}
-						onPress={() => handleNavigateToCategory(category.id)}
+						onPress={() =>
+							handleNavigateToCategory(category.id, category.name)
+						}
 					>
 						<ListItemTitle>{category.name}</ListItemTitle>
 					</ListItemContainer>

@@ -81,9 +81,10 @@ const ListView: React.FC<Props> = ({
 	}, [createBrand, newBrandName]);
 
 	const handleNavigateToCategory = useCallback(
-		(brand_id: string) => {
+		(brand_id: string, brand_name?: string) => {
 			navigate('BrandView', {
 				brand_id,
+				brand_name,
 			});
 		},
 		[navigate]
@@ -134,7 +135,9 @@ const ListView: React.FC<Props> = ({
 				{sortedBrands.map(brand => (
 					<ListItemContainer
 						key={brand.id}
-						onPress={() => handleNavigateToCategory(brand.id)}
+						onPress={() =>
+							handleNavigateToCategory(brand.id, brand.name)
+						}
 					>
 						<ListItemTitle>{brand.name}</ListItemTitle>
 					</ListItemContainer>
