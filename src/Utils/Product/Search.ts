@@ -9,26 +9,37 @@ export function searchProducts({
 	query,
 	products,
 }: searchProductsProps): Array<IProduct> {
+	const slitedDate = query.split('/');
+
 	const q = query.toLowerCase();
 
-	const productsFind = products.filter(product => {
-		const searchByName = product.name.toLowerCase().includes(q);
+	const productsFind: IProduct[] = [];
 
-		if (searchByName) return true;
-
-		if (product.code) {
-			const searchBycode = product.code.toLowerCase().includes(q);
-			if (searchBycode) return true;
+	// for is faster than filter function
+	for (let i = 0; i < products.length; i++) {
+		// this won't add duplicate products
+		if (productsFind.indexOf(products[i]) >= 0) {
+			continue;
 		}
 
-		if (product.batches.length > 0) {
-			const batches = product.batches.filter(batch => {
-				const findedByBatchName = batch.name.toLowerCase().includes(q);
+		if (slitedDate.length <= 2) {
+			if (products[i].name.includes(q)) {
+				productsFind.push(products[i]);
+				continue;
+			}
 
-				if (findedByBatchName) return true;
+			const { code } = products[i];
 
-				const slitedDate = query.split('/');
+			if (code) {
+				if (code.includes(q)) {
+					productsFind.push(products[i]);
+					continue;
+				}
+			}
+		}
 
+		if (products[i].batches.length > 0) {
+			for (let j = 0; j < products[i].batches.length; j++) {
 				if (slitedDate.length > 2) {
 					const date = endOfDay(
 						new Date(
@@ -38,22 +49,23 @@ export function searchProducts({
 						)
 					);
 
-					const batch_date = isDate(batch.exp_date)
-						? (batch.exp_date as Date)
-						: parseISO(batch.exp_date);
+					const { exp_date } = products[i].batches[j];
 
-					if (compareAsc(endOfDay(batch_date), date) === 0)
-						return true;
+					const batch_date = isDate(exp_date)
+						? (exp_date as Date)
+						: parseISO(exp_date);
+
+					if (compareAsc(endOfDay(batch_date), date) === 0) {
+						productsFind.push(products[i]);
+						continue;
+					}
+				} else if (products[i].batches[j].name.includes(q)) {
+					productsFind.push(products[i]);
+					continue;
 				}
-
-				return false;
-			});
-
-			if (batches.length > 0) return true;
+			}
 		}
-
-		return false;
-	});
+	}
 
 	return productsFind;
 }
