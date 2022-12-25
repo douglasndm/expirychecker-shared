@@ -18,6 +18,7 @@
             "@components/*": ["./packages/shared/src/Components/*"],
             "@utils/*": ["./packages/shared/src/Utils/*"],
             "@styles/*": ["./packages/shared/src/Styles/*"],
+            "@views/*": ["./packages/shared/src/Views/*"],
         },
         "typeRoots": [
             "./src/@types"
