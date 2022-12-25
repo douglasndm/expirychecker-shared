@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { getLocales } from 'react-native-localize';
 import FastImage from 'react-native-fast-image';
