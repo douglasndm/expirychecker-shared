@@ -5,6 +5,7 @@
     "license": "MIT",
     "dependencies": {
         "react-native-check-version": "^1.0.16",
+        "react-native-code-push": "*",
         "react-native-qrcode-scanner": "^1.5.5",
         "@react-native-community/blur": "^4.2.0"
     },
@@ -24,7 +25,6 @@
         "react": "*",
         "react-native": "*",
         "react-number-format": "*",
-        "react-native-code-push": "*",
         "react-native-dialog": "*",
         "react-native-device-info": "*",
         "react-native-fast-image": "*",
