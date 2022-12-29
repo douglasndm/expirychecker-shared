@@ -78,13 +78,13 @@ const Appearance: React.FC<Props> = ({
 				return;
 			}
 			setSelectedTheme(themeName);
-			await setAppTheme(themeName);
+			await setAppTheme(themeName, teamsThemes, enablePROThemes);
 
 			const changeToTheme = await getActualAppTheme();
 
 			onThemeChoosen(changeToTheme);
 		},
-		[onThemeChoosen]
+		[enablePROThemes, onThemeChoosen, teamsThemes]
 	);
 
 	return (
