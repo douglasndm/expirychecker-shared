@@ -28,13 +28,15 @@ import {
 interface Props {
 	products: IProduct[];
 	howManyDaysToBeNextToExpire?: number;
+	isLoading?: boolean;
 }
 
 const WeekView: React.FC<Props> = ({
 	products,
 	howManyDaysToBeNextToExpire = 30,
+	isLoading,
 }: Props) => {
-	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [isRendering, setIsRendering] = useState<boolean>(true);
 
 	const [weeks, setWeeks] = useState<WeekProps[]>([]);
 	const [activeSection, setActiveSection] = useState<number[]>([]);
@@ -46,9 +48,9 @@ const WeekView: React.FC<Props> = ({
 		return 'dd/MM/yyyy';
 	}, []);
 
-	const loadData = useCallback(async () => {
+	useEffect(() => {
 		try {
-			setIsLoading(true);
+			setIsRendering(true);
 
 			const batches: IBatch[] = [];
 
@@ -111,13 +113,9 @@ const WeekView: React.FC<Props> = ({
 					type: 'danger',
 				});
 		} finally {
-			setIsLoading(false);
+			setIsRendering(false);
 		}
 	}, [products]);
-
-	useEffect(() => {
-		loadData();
-	}, []);
 
 	const renderSectionTitle = useCallback(
 		(week: WeekProps, index: number) => {
@@ -170,7 +168,7 @@ const WeekView: React.FC<Props> = ({
 		});
 	}, [weeks]);
 
-	return isLoading ? (
+	return isRendering || isLoading ? (
 		<Loading />
 	) : (
 		<Container>
