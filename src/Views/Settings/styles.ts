@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import RNPickerSelect from 'react-native-picker-select';
+import { Switch as SwitchPaper } from 'react-native-paper';
 
 export const Container = styled.SafeAreaView`
 	flex: 1;
@@ -62,4 +63,8 @@ export const Picker = styled(RNPickerSelect).attrs(({ theme }) => ({
 			color: theme.colors.productCardText,
 		},
 	},
+}))``;
+
+export const Switch = styled(SwitchPaper).attrs(props => ({
+	color: props.theme.colors.accent,
 }))``;
