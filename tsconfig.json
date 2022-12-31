@@ -17,6 +17,7 @@
             "@shared/*": ["./packages/shared/src/*"],
             "@components/*": ["./packages/shared/src/Components/*"],
             "@utils/*": ["./packages/shared/src/Utils/*"],
+            "@services/*": ["./packages/shared/src/Services/*"],
             "@styles/*": ["./packages/shared/src/Styles/*"],
             "@views/*": ["./packages/shared/src/Views/*"],
         },
