@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { getLocales } from 'react-native-localize';
 import FastImage from 'react-native-fast-image';
-import { addDays, format, formatDistanceToNow, isPast, isDate, parseISO } from 'date-fns'; // eslint-disable-line
+import { addDays, format, formatDistanceStrict, isPast, isDate, parseISO } from 'date-fns'; // eslint-disable-line
 import { ptBR, enUS } from 'date-fns/locale' // eslint-disable-line
 
 import strings from '@shared/Locales';
@@ -143,7 +143,7 @@ function Product({
 							}}
 							onLoadStart={onLoadStart}
 							onLoadEnd={onLoadEnd}
-							onError={err => {
+							onError={() => {
 								setImgFailedToLoad(true);
 							}}
 						/>
@@ -162,9 +162,10 @@ function Product({
 					{expired
 						? strings.ProductCardComponent_ProductExpiredIn
 						: strings.ProductCardComponent_ProductExpireIn}
-					{` ${formatDistanceToNow(exp_date, {
+					{` ${formatDistanceStrict(exp_date, new Date(), {
 						addSuffix: true,
 						locale: languageCode,
+						unit: 'day',
 					})}`}
 					{format(exp_date, `, EEEE, ${dateFormat}`, {
 						locale: languageCode,
