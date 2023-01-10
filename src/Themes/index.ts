@@ -75,8 +75,11 @@ export function getThemeByName(themeName: string): DefaultTheme {
 	}
 }
 
-export const getActualAppTheme = async (): Promise<DefaultTheme> => {
-	const theme = await getAppTheme();
+export const getActualAppTheme = async (
+	isTeams?: boolean | undefined,
+	isPro?: boolean | undefined
+): Promise<DefaultTheme> => {
+	const theme = await getAppTheme(isTeams, isPro);
 
 	if (theme === 'light') {
 		return Light;
