@@ -7,8 +7,10 @@
         "react-native-check-version": "^1.0.16",
         "react-native-code-push": "*",
         "react-native-collapsible": "^1.6.0",
+        "react-native-fs": "^2.20.0",
         "react-native-qrcode-scanner": "^1.5.5",
-        "@react-native-community/blur": "^4.2.0"
+        "@react-native-community/blur": "^4.2.0",
+        "xlsx": "^0.17.0"
     },
     "devDependencies": {
         "@types/react-native": "*",
